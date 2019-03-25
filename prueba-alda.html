@@ -1,0 +1,130 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+
+<dom-module id="prueba-alda">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    
+    <paper-input label="Nombre" 
+      auto-validate pattern="[a-zA-Z]*" 
+      error-message="Solo Letras" 
+      value="{{name}}" >
+    </paper-input>
+
+    <paper-input label="Direccion" 
+      auto-validate pattern="[a-zA-Z]*" 
+      error-message="letters only!" 
+      value="{{direc}}">
+    </paper-input>
+
+    <paper-input label="Telefono" 
+      allowed-pattern="[0-9]" 
+      error-message="solo numeros" 
+      value="{{tel}}">
+    </paper-input>
+
+    <paper-input label="Telefono oficina" 
+      allowed-pattern="[0-9]" 
+      error-message="solo numeros"
+      value="{{tel2}}">
+
+    </paper-input>
+
+    <paper-input type="email"
+        label="Ingresa tu email" 
+        value="{{email}}" 
+        auto-validate 
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" >>
+      </paper-input>
+
+    <button onclick="validate()">Guardar!</button>
+
+    
+
+    <h4>Encabezados verticales:</h4>
+        <table border="1">
+            <tr>
+         <th colspan="2">Nombre:</th>
+         <td>[[name]]</td>
+            </tr>
+        <tr>
+         <th colspan="2">Direccion:</th>
+         <td>[[direc]]</td>
+            </tr>
+        <tr>
+         <th colspan="2">Telefono:</th>
+         <td> [[tel]]</td>
+              </tr>
+          <th colspan="2">Telefono Oficina:</th>
+         <td> [[tel2]]</td>
+              </tr>
+        </table>
+   <!--  <input type="text" name="[[name]]"> -->
+
+
+
+  </template>
+
+  <script>
+
+    /**
+     * `prueba-alda`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PruebaAlda extends Polymer.Element {
+      static get is() { return 'prueba-alda'; }
+      static get properties() {
+        return {
+          
+           name: {
+            type: String,
+            reflectToAttribute: true
+          },
+          direc: {
+            type: String,
+            reflectToAttribute: true
+          },
+          tel: {
+            type: String,
+            reflectToAttribute: true
+          },
+          tel2: {
+            type: String,
+            reflectToAttribute: true
+          },
+          email: {
+            type: String,
+            reflectToAttribute: true
+          }
+
+        };
+      }
+
+      constructor() {
+        super();
+      }
+
+      ready () {
+        super.ready();
+        console.log(this.$)
+        
+      }
+    }
+
+
+
+    window.customElements.define(PruebaAlda.is, PruebaAlda);
+
+
+
+  </script>
+</dom-module>
